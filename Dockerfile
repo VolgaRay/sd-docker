@@ -10,6 +10,5 @@ RUN pip install --upgrade pip && pip install -r /tmp/requirements.txt
 # Create workspace directory
 RUN mkdir -p /workspace/sd
 WORKDIR /workspace/sd
-COPY . /workspace/sd
 
 ENV HF_HOME=/root/.cache/huggingface
