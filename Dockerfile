@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:24.05-py3
+FROM nvcr.io/nvidia/pytorch:25.06-py3
 
 # Install basic OS deps
 RUN apt-get update && apt-get install -y vim wget git curl

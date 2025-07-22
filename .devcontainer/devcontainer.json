@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Existing Dockerfile",
+	"name": "PyTorch NV Dev Container",
 	"build": {
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "..",
@@ -24,11 +24,16 @@
 	},
 	"mounts": [
 		"source=${localWorkspaceFolder},target=/workspace/sd,type=bind,consistency=cached",
-		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.cache/huggingface,target=/root/.cache/huggingface,type=bind,consistency=cached"
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.cache/huggingface,target=/root/.cache/huggingface,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.cache,target=/root/.cache,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.huggingface,target=/root/.huggingface,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
 	],
 	"runArgs": [
 		"--gpus", "all",
 		"--ipc=host",
+		"--shm-size=8g",
 		"--ulimit", "memlock=-1",
 		"--ulimit", "stack=67108864"
 	],
